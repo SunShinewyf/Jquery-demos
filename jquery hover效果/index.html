@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Jquery hover实现效果</title>
+	<style>
+        *{margin:0;padding:0;}
+        #main{width:500px;height: 410px;border:1px solid gray;margin:0 auto;margin-top:100px;}
+        ul{list-style: none;}
+        li{width:240px;height: 200px;float:left;display: inline;overflow: hidden;margin:5px 0 0 5px;position: relative;}
+        .img1 img{width:240px;height: 200px;position: absolute;top:0;left: 0;}
+        .content{width:240px;height: 200px;position: absolute;left:0;top:200px;background: #e8e8e8;}
+        .img2 img{width:60px;height: 60px;}
+        .content h3{font-size: 13px;float: right;margin-top:23px;margin-right: 82px;}
+        .content p{font-size: 12px;line-height: 24px;color:#666;}
+        .tagP3 a {width:50px;height: 30px;border:1px solid #ccc;color: #fff;text-align: center;display: block;line-height: 30px;margin-left: 20px;background: purple;float: left;text-decoration: none;border-radius: 4px;}
+
+
+	</style>
+</head>
+<body>
+	<div id="main">
+	    <ul>
+	    	<li>
+	    		<a href="" class="img1" target="_blank"><img src="1.jpg"/></a>
+	    		<div class="content">
+	    			<a href="" class="img2"><img src="1.jpg" alt=""></a>
+	    			<h3>鲜花:人间好花</h3>
+	    			<p class="tagP2">全聚德通过网站很好的宣传了企业品牌。利用图片展示菜系，通过照片和描述介绍了用餐环境，留下完整的地点电话等,方便客户提前了解菜谱和用餐环境。</p>
+	    			<p class="tagP3"><a target="_blank" href="#">查看该产品</a><a target="_blank" href="#">查看案例</a></p>
+	    		</div>
+	    	</li>
+	    	<li>
+	    		<a href="" class="img1"><img src="2.jpg"/></a>
+	    		<div class="content">
+	    			<a href="" class="img2"><img src="2.jpg" alt=""></a>
+	    			<h3>单身汪:哈哈</h3>
+	    			<p class="tagP2">全聚德通过网站很好的宣传了企业品牌。利用图片展示菜系，通过照片和描述介绍了用餐环境，留下完整的地点电话等,方便客户提前了解菜谱和用餐环境。</p>
+	    			<p class="tagP3"><a target="_blank" href="#">查看该产品</a><a target="_blank" href="#">查看案例</a></p>
+	    		</div>
+	    	</li>
+	    	<li>
+	    		<a href="" class="img1"><img src="3.jpg"/></a>
+	    		<div class="content">
+	    			<a href="" class="img2"><img src="3.jpg" alt=""></a>
+	    			<h3>紫色的花</h3>
+	    			<p class="tagP2">全聚德通过网站很好的宣传了企业品牌。利用图片展示菜系，通过照片和描述介绍了用餐环境，留下完整的地点电话等,方便客户提前了解菜谱和用餐环境。</p>
+	    			<p class="tagP3"><a target="_blank" href="#">查看该产品</a><a target="_blank" href="#">查看案例</a></p>
+	    		</div>
+	    	</li>
+	    	<li>
+	    		<a href="" class="img1"><img src="4.jpg"/></a>
+	    		<div class="content">
+	    			<a href="" class="img2"><img src="4.jpg" alt=""></a>
+	    			<h3>赵丽颖</h3>
+	    			<p class="tagP2">全聚德通过网站很好的宣传了企业品牌。利用图片展示菜系，通过照片和描述介绍了用餐环境，留下完整的地点电话等,方便客户提前了解菜谱和用餐环境。</p>
+	    			<p class="tagP3"><a target="_blank" href="#">查看该产品</a><a target="_blank" href="#">查看案例</a></p>
+	    		</div>
+	    	</li>
+	    </ul>
+	</div>
+	<script type="text/javascript" src="jquery.js"></script>	
+	<script type="text/javascript">
+         $(function(){
+              var moveTop = 200,
+                  moveTime = 200,
+                  timer = null;
+                  $('#main li').hover(function (e){
+                  	  var curLi = $(this);
+                  	  timer = setTimeout(function(){
+                          curLi.children('.img1').animate({ top : '-' + moveTop + 'px'},moveTime);  //采用动画效果进行显示
+                          curLi.children('.content').animate({ top : 0 + 'px'},moveTime);
+                  	  },200);
+                  },function(e){
+                  	  clearTimeout(timer);
+                  	  $(this).children('.img1').animate({ top : '0px'},moveTime);
+                  	  $(this).children('.content').animate({top : moveTop + 'px'},moveTime);
+                  });
+         });
+	</script>
+</body>
+</html>
